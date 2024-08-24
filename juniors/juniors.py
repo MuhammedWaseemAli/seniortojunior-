@@ -92,7 +92,7 @@ subjects = {
         "Tips and Tricks": """
             1. Go through the provided PPTs at least once and understand the key concepts.
             2. Solve and understand the concepts in assignments. If you're stuck, use resources like Chegg or Homeworkify, and refer to senior students' assignment papers.
-            3. Solving previous year questions is crucial for midterms and final exams.
+            3. Solving previous year questions is crucial for midterms and final exams.**please use your smail to access the contents below** ..
         """,
         "Lectures": "https://drive.google.com/drive/folders/1hx_Lpxzb6IGkDDFdIH8rt9t1IQRTHMxl",
         "Previous Year Question Papers": "https://drive.google.com/drive/u/0/folders/1egIbmKGoCK2E9nSzFUgxKH5c4As6xsoB",
