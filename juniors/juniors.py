@@ -160,16 +160,27 @@ for resource, link in subjects[selected_subject].items():
         """, unsafe_allow_html=True)
 
 
+ Random surprise effects and messages
 effects = ['balloons', 'snow', 'custom_message']
 
-if st.button("Click for a surprise!"):
+random_messages = [
+    "🎉 You are doing great! 🎉",
+    "Do you know Ligy ma'am gives a lot of marks, more than we deserve if our approach is right.",
+    "Madhav sir gives good grades. So don't worry. If he feels you work hard, he will give marks.",
+    "Ligy ma'am likes to joke.",
+    "If you have doubt regarding GATE and PSU, contact your senior Aditya. FACT: He even taught SSC JE for others.",
+    "Bro you are so chill. So why worry :)",
+    "Oh exams are nearby. Just be chill and study. I know you are nervous, but you got it bro! You reached up to here, so you can do it."
+]
+
+if st.button("Click here if you are bored!"):
     surprise = random.choice(effects)
     if surprise == 'balloons':
         st.balloons()
     elif surprise == 'snow':
         st.snow()
     elif surprise == 'custom_message':
-        st.markdown("<h1 style='text-align: center;'>🎉 You are doing great! 🎉</h1>", unsafe_allow_html=True)
+        st.markdown(f"<h1 style='text-align: center;'>{random.choice(random_messages)}</h1>", unsafe_allow_html=True)
 
 
 st.markdown("""
