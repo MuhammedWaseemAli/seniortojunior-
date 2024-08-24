@@ -2,7 +2,6 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import random
 
-# Custom CSS with a cleaner design
 st.markdown("""
 <style>
     body {
@@ -88,7 +87,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Define the structure of your app
 subjects = {
     "ECM": {
         "Tips and Tricks": """
@@ -130,17 +128,17 @@ subjects = {
     }
 }
 
-# Create the sidebar with subjects
+
 st.sidebar.title("Subjects")
 selected_subject = st.sidebar.radio("Choose a subject", list(subjects.keys()))
 
-# Display the resources for the selected subject
+
 st.markdown(f"<h1 class='subject-title'>{selected_subject} Resources</h1>", unsafe_allow_html=True)
 
-# Display Tips and Tricks at the top
+
 st.markdown(f"<h3>Tips and Tricks:</h3><p>{subjects[selected_subject]['Tips and Tricks']}</p>", unsafe_allow_html=True)
 
-# Display the importance graph if the subject is ECM
+
 if selected_subject == "ECM":
     st.markdown("<h3>Importance of Study Strategies:</h3>", unsafe_allow_html=True)
     labels = subjects["ECM"]["Importance Graph"]["labels"]
@@ -152,7 +150,7 @@ if selected_subject == "ECM":
 
     st.pyplot(fig)
 
-# Display the resources for EMDA and other subjects
+
 for resource, link in subjects[selected_subject].items():
     if resource not in ["Tips and Tricks", "Importance Graph"]:
         st.markdown(f"""
@@ -161,7 +159,7 @@ for resource, link in subjects[selected_subject].items():
         </div>
         """, unsafe_allow_html=True)
 
-# Random surprise effects
+
 effects = ['balloons', 'snow', 'custom_message']
 
 if st.button("Click for a surprise!"):
@@ -173,7 +171,7 @@ if st.button("Click for a surprise!"):
     elif surprise == 'custom_message':
         st.markdown("<h1 style='text-align: center;'>🎉 You are doing great! 🎉</h1>", unsafe_allow_html=True)
 
-# Footer message
+
 st.markdown("""
 <div class="footer">
     <p>From senior to junior</p>
