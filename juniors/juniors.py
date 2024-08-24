@@ -113,9 +113,9 @@ subjects = {
     },
     "SWM": {
         "Tips and Tricks": """
-            1. Prepare thoroughly using the provided sources.
+            1. Prepare whatever sir gives.
             2. Obtain and study previous year question papers.
-            3. Ensure accuracy in every task.
+            3. Ensure to do every task they give.
         """,
         "Previous Year Question Papers": "https://drive.google.com/drive/folders/1kmKctDWKd1rU6RX6mJilvkawMybFR5B-",
         "Assignment Question Papers and Answer": "https://drive.google.com/drive/u/0/folders/1dfwMD7i6znx7uyACxhaaYDuUyFp8V3i0"
