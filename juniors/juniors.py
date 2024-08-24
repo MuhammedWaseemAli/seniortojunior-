@@ -160,7 +160,7 @@ for resource, link in subjects[selected_subject].items():
         """, unsafe_allow_html=True)
 
 
- Random surprise effects and messages
+
 effects = ['balloons', 'snow', 'custom_message']
 
 random_messages = [
