@@ -170,7 +170,13 @@ random_messages = [
     "Ligy ma'am likes to joke.",
     "If you have doubt regarding GATE and PSU, contact your senior Aditya. FACT: He even taught SSC JE for others.",
     "Bro you are so chill. So why worry :)",
-    "Oh exams are nearby. Just be chill and study. I know you are nervous, but you got it bro! You reached up to here, so you can do it."
+    "Oh exams are nearby. Just be chill and study. I know you are nervous, but you got it bro! You reached up to here, so you can do it.",
+    "oh you have placement related doubt ask mihir shinjini",
+    "oh you need some study tips ask sreenivasulu ",
+    "oh u wanna challenge someone in cricket challenge kartick",
+    "oh you want chill person talk to korus the KOKO",
+    
+
 ]
 
 if st.button("Click here if you are bored!"):
