@@ -9,7 +9,8 @@ import requests
 whats_new = [
     "updated madhav sir lecture in pcp. dont spend time on it more at beginning . it will be useful at end when he teaches advance topics . ",
     "updated pcp text books which he refer peavy and benefield",
-    "EMDA question papers"
+    "EMDA question papers",
+    "SWM textbooks and ppt"
     # Add more items as you make changes
 ]
 
