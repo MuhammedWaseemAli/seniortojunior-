@@ -1,7 +1,11 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import random
-
+whats_new = [
+    "Added 'What's New' notification",
+    "Updated ECM resources",
+    # Add more items as you make changes
+]
 st.markdown("""
 <style>
     body {
@@ -84,7 +88,33 @@ st.markdown("""
         color: #555;
         font-size: 14px;
     }
+    .whats-new {
+        background-color: #e6f3ff;
+        border-left: 5px solid #007BFF;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .whats-new h4 {
+        color: #007BFF;
+        margin-top: 0;
+    }
+
+    .whats-new ul {
+        margin-bottom: 0;
+        padding-left: 20px;
+    }
 </style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<div class="whats-new">
+    <h4>What's New:</h4>
+    <ul>
+""" + "".join([f"<li>{item}</li>" for item in whats_new]) + """
+    </ul>
+</div>
 """, unsafe_allow_html=True)
 
 subjects = {
