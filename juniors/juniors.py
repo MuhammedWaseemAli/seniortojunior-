@@ -1,12 +1,30 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import random
+import pandas as pd
+import altair as alt
+from streamlit_lottie import st_lottie
+import requests
+
 whats_new = [
     "updated madhav sir lecture in pcp. dont spend time on it more at beginning . it will be useful at end when he teaches advance topics . ",
     "updated pcp text books which he refer peavy and benefield",
     "EMDA question papers"
     # Add more items as you make changes
 ]
+
+# Function to load Lottie animations
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+# Load Lottie animations
+lottie_book = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_1a8dx7zj.json")
+lottie_coding = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_0yfsb3a1.json")
+
+# Apply custom CSS with animations
 st.markdown("""
 <style>
     body {
@@ -41,6 +59,11 @@ st.markdown("""
         margin: 10px 0;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         border: 1px solid #ddd;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .resource-card:hover {
+        transform: scale(1.05);
     }
 
     .subject-title {
@@ -89,6 +112,7 @@ st.markdown("""
         color: #555;
         font-size: 14px;
     }
+
     .whats-new {
         background-color: #e6f3ff;
         border-left: 5px solid #007BFF;
@@ -106,11 +130,29 @@ st.markdown("""
         margin-bottom: 0;
         padding-left: 20px;
     }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    
+    .fadeIn {
+        animation: fadeIn 1.5s ease-in-out;
+    }
+    
+    @keyframes slideIn {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(0); }
+    }
+    
+    .slideIn {
+        animation: slideIn 1s ease-in-out;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<div class="whats-new">
+<div class="whats-new fadeIn">
     <h4>What's New:</h4>
     <ul>
 """ + "".join([f"<li>{item}</li>" for item in whats_new]) + """
@@ -159,33 +201,40 @@ subjects = {
         """,
         "Class lecture ppt": "https://drive.google.com/drive/u/1/folders/1VMQo7o4FjEqaUxBcBsTFARj3UxUZExaH",
         "PREVIOUS QUESTION PAPER": "https://drive.google.com/drive/u/0/folders/1AqeGE8VslYlgm2LhuSj_BsIwXTZKNAe-"
-    
     }
 }
 
-
+# Sidebar with cool animation
 st.sidebar.title("Subjects")
+st_lottie(lottie_book, height=200, key="sidebar_animation")
 selected_subject = st.sidebar.radio("Choose a subject", list(subjects.keys()))
 
+# Main content with animations
+st.markdown(f"<h1 class='subject-title fadeIn'>{selected_subject} Resources</h1>", unsafe_allow_html=True)
 
-st.markdown(f"<h1 class='subject-title'>{selected_subject} Resources</h1>", unsafe_allow_html=True)
+# Add a cool animation to the main content
+st_lottie(lottie_coding, height=300, key="main_animation")
 
+# Tips and Tricks with slide-in animation
+st.markdown(f"<h3 class='slideIn'>Tips and Tricks:</h3><p>{subjects[selected_subject]['Tips and Tricks']}</p>", unsafe_allow_html=True)
 
-st.markdown(f"<h3>Tips and Tricks:</h3><p>{subjects[selected_subject]['Tips and Tricks']}</p>", unsafe_allow_html=True)
-
-
+# Interactive chart for ECM
 if selected_subject == "ECM":
     st.markdown("<h3>Importance of Study Strategies:</h3>", unsafe_allow_html=True)
     labels = subjects["ECM"]["Importance Graph"]["labels"]
     sizes = subjects["ECM"]["Importance Graph"]["sizes"]
+    
+    df = pd.DataFrame({"Strategy": labels, "Importance": sizes})
+    
+    chart = alt.Chart(df).mark_arc().encode(
+        theta=alt.Theta(field="Importance", type="quantitative"),
+        color=alt.Color(field="Strategy", type="nominal"),
+        tooltip=["Strategy", "Importance"]
+    ).properties(width=400, height=400)
+    
+    st.altair_chart(chart, use_container_width=True)
 
-    fig, ax = plt.subplots()
-    ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
-    ax.axis('equal')
-
-    st.pyplot(fig)
-
-
+# Resources with hover effect
 for resource, link in subjects[selected_subject].items():
     if resource not in ["Tips and Tricks", "Importance Graph"]:
         st.markdown(f"""
@@ -194,8 +243,7 @@ for resource, link in subjects[selected_subject].items():
         </div>
         """, unsafe_allow_html=True)
 
-
-
+# Interactive surprise button
 effects = ['balloons', 'snow', 'custom_message']
 
 random_messages = [
@@ -210,22 +258,20 @@ random_messages = [
     "oh you need some study tips ask sreenivasulu ",
     "oh u wanna challenge someone in cricket challenge kartick",
     "oh you want chill person talk to korus the KOKO",
-    
-
 ]
 
-if st.button("Click here if you are bored!"):
+if st.button("Click here if you are bored!", key="surprise_button"):
     surprise = random.choice(effects)
     if surprise == 'balloons':
         st.balloons()
     elif surprise == 'snow':
         st.snow()
     elif surprise == 'custom_message':
-        st.markdown(f"<h1 style='text-align: center;'>{random.choice(random_messages)}</h1>", unsafe_allow_html=True)
+        st.markdown(f"<h1 style='text-align: center;' class='fadeIn'>{random.choice(random_messages)}</h1>", unsafe_allow_html=True)
 
-
+# Footer
 st.markdown("""
-<div class="footer">
+<div class="footer fadeIn">
     <p>From senior to junior</p>
     <p>ALL THE BEST...</p>
 </div>
