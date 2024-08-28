@@ -24,6 +24,13 @@ def load_lottieurl(url: str):
 lottie_book = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_1a8dx7zj.json")
 lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
 
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+    """, unsafe_allow_html=True)
 
 st.markdown("""
 <style>
