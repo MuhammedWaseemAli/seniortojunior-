@@ -110,6 +110,7 @@ subjects = {
             4. Be prepared for some GATE-level questions that may be asked from IIT sources.
         """,
         "Link for All Materials": "https://drive.google.com/drive/folders/1ke-PfLyyXR2CqFqbAyYVOQc4u9et76ab"
+        "Link for sir class": "https://drive.google.com/drive/u/0/folders/1bBR17lIAc7ZKQ3zet2JUMeBGZYgfOlT1"
     },
     "SWM": {
         "Tips and Tricks": """
