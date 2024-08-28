@@ -228,7 +228,7 @@ st.markdown(f"<h3 class='slideIn'>Tips and Tricks:</h3><p>{subjects[selected_sub
 
 
 if selected_subject == "ECM":
-    st.markdown("<h3>Importance of Study Strategies:</h3>", unsafe_allow_html=True)
+    st.markdown("<h3> Study Strategy:</h3>", unsafe_allow_html=True)
     labels = subjects["ECM"]["Importance Graph"]["labels"]
     sizes = subjects["ECM"]["Importance Graph"]["sizes"]
     
