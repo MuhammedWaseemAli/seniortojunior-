@@ -2,8 +2,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import random
 whats_new = [
-    "Added 'What's New' notification",
-    "Updated ECM resources",
+    "updated madhav sir lecture in pcp. dont spend time on it more at beginning . it will be useful at end when he teaches advance topics . ",
+    "updated pcp text books which he refer peavy and benefield",
     # Add more items as you make changes
 ]
 st.markdown("""
