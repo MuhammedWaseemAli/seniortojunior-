@@ -14,18 +14,17 @@ whats_new = [
     # Add more items as you make changes
 ]
 
-# Function to load Lottie animations
+
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
         return None
     return r.json()
 
-# Load Lottie animations
 lottie_book = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_1a8dx7zj.json")
 lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
 
-# Apply custom CSS with animations
+
 st.markdown("""
 <style>
     body {
@@ -206,21 +205,21 @@ subjects = {
     }
 }
 
-# Sidebar with cool animation
+
 st.sidebar.title("Subjects")
 st_lottie(lottie_book, height=200, key="sidebar_animation")
 selected_subject = st.sidebar.radio("Choose a subject", list(subjects.keys()))
 
-# Main content with animations
+
 st.markdown(f"<h1 class='subject-title fadeIn'>{selected_subject} Resources</h1>", unsafe_allow_html=True)
 
-# Add a cool animation to the main content
+
 st_lottie(lottie_coding, height=300, key="main_animation")
 
-# Tips and Tricks with slide-in animation
+
 st.markdown(f"<h3 class='slideIn'>Tips and Tricks:</h3><p>{subjects[selected_subject]['Tips and Tricks']}</p>", unsafe_allow_html=True)
 
-# Interactive chart for ECM
+
 if selected_subject == "ECM":
     st.markdown("<h3>Importance of Study Strategies:</h3>", unsafe_allow_html=True)
     labels = subjects["ECM"]["Importance Graph"]["labels"]
@@ -236,7 +235,7 @@ if selected_subject == "ECM":
     
     st.altair_chart(chart, use_container_width=True)
 
-# Resources with hover effect
+
 for resource, link in subjects[selected_subject].items():
     if resource not in ["Tips and Tricks", "Importance Graph"]:
         st.markdown(f"""
@@ -245,7 +244,7 @@ for resource, link in subjects[selected_subject].items():
         </div>
         """, unsafe_allow_html=True)
 
-# Interactive surprise button
+
 effects = ['balloons', 'snow', 'custom_message']
 
 random_messages = [
@@ -271,7 +270,7 @@ if st.button("Click here if you are bored!", key="surprise_button"):
     elif surprise == 'custom_message':
         st.markdown(f"<h1 style='text-align: center;' class='fadeIn'>{random.choice(random_messages)}</h1>", unsafe_allow_html=True)
 
-# Footer
+
 st.markdown("""
 <div class="footer fadeIn">
     <p>From senior to junior</p>
