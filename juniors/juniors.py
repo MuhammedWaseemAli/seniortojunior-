@@ -193,7 +193,7 @@ subjects = {
             3. Ensure to do every task they give.
         """,
         "Previous Year Question Papers": "https://drive.google.com/drive/folders/1kmKctDWKd1rU6RX6mJilvkawMybFR5B-",
-        "Assignment Question Papers and Answer": "https://drive.google.com/drive/u/0/folders/1dfwMD7i6znx7uyACxhaaYDuUyFp8V3i0"
+        "Assignment Question Papers and Answer": "https://drive.google.com/drive/u/0/folders/1dfwMD7i6znx7uyACxhaaYDuUyFp8V3i0",
         "text books and ppt ": "https://drive.google.com/drive/u/0/folders/10N6NVPHn4t533gmEqcZyt9KdAOfCDvfV"
     },
     "EMDA": {
