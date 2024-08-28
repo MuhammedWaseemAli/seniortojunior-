@@ -157,8 +157,8 @@ subjects = {
             1. Focus on understanding everything from the provided PPTs, as questions are rarely asked from outside these materials.
         """,
         "Class lecture ppt": "https://drive.google.com/drive/u/1/folders/1VMQo7o4FjEqaUxBcBsTFARj3UxUZExaH",
-        "PREVIOUS QUESTION PAPER : "https://drive.google.com/drive/u/0/folders/1AqeGE8VslYlgm2LhuSj_BsIwXTZKNAe-"
-        
+        "PREVIOUS QUESTION PAPER": "https://drive.google.com/drive/u/0/folders/1AqeGE8VslYlgm2LhuSj_BsIwXTZKNAe-"
+    
     }
 }
 
