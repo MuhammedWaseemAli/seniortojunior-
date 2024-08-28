@@ -22,7 +22,7 @@ def load_lottieurl(url: str):
 
 # Load Lottie animations
 lottie_book = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_1a8dx7zj.json")
-lottie_coding = load_lottieurl("https://assets3.lottiefiles.com/packages/lf20_nawcy6qz.json")
+lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_bhgykoc0.json")
 
 # Apply custom CSS with animations
 st.markdown("""
