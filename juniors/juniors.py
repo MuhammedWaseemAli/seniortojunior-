@@ -11,7 +11,7 @@ whats_new = [
     "updated pcp text books which he refer peavy and benefield",
     "EMDA question papers",
     "SWM textbooks and ppt",
-    "*pcp 2019 question paper in quiz folder*"
+    "pcp 2019 question paper in quiz folder"
     # Add more items as you make changes
 ]
 
