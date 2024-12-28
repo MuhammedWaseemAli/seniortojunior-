@@ -320,4 +320,4 @@ if st.button("🎉 Need Some Motivation?", key="motivation_button"):
 # Footer
 st.markdown("""
 <div class="resource-card" style="text-align: center;">
-    <h3>From Senior to Junior
+    <h3>From Senior to Junior""")
