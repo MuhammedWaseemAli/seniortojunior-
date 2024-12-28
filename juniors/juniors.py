@@ -345,4 +345,4 @@ st.markdown("""
     <h3>💡 Did You Know?</h3>
 """, unsafe_allow_html=True)
 st.write(random.choice(fun_facts))
-st.markdown("</div>", unsafe_allow_
+st.markdown("</div>", unsafe_allow_)
