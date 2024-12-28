@@ -1,3 +1,4 @@
+#juniortosenior 
 import streamlit as st
 import matplotlib.pyplot as plt
 import random
@@ -6,14 +7,167 @@ import altair as alt
 from streamlit_lottie import st_lottie
 import requests
 
-# Data Structures
 whats_new = [
-    {"update": "Updated Madhav sir lecture in PCP", "date": "2024-12-28"},
-    {"update": "Added PCP textbooks (Peavy and Benefield)", "date": "2024-12-27"},
-    {"update": "Added EMDA question papers", "date": "2024-12-26"},
-    {"update": "Added SWM textbooks and PPT", "date": "2024-12-25"},
-    {"update": "Added PCP 2019 question paper in quiz folder", "date": "2024-12-24"}
+    "updated madhav sir lecture in pcp. dont spend time on it more at beginning . it will be useful at end when he teaches advance topics . ",
+    "updated pcp text books which he refer peavy and benefield",
+    "EMDA question papers",
+    "SWM textbooks and ppt",
+    "pcp 2019 question paper in quiz folder"
+    # Add more items as you make changes
 ]
+
+
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+lottie_book = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_1a8dx7zj.json")
+lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
+
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+    """, unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    .main {
+        padding: 20px;
+    }
+
+    .stButton>button {
+        color: #ffffff;
+        background-color: #007BFF;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+    .stButton>button:hover {
+        background-color: #0056b3;
+    }
+
+    .resource-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .resource-card:hover {
+        transform: scale(1.05);
+    }
+
+    .subject-title {
+        color: #333;
+        font-size: 36px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .resource-link {
+        color: #007BFF;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .resource-link:hover {
+        color: #0056b3;
+    }
+
+    .sidebar .sidebar-content {
+        background-color: #f7f7f7;
+    }
+
+    h3 {
+        color: #333;
+        margin-top: 20px;
+    }
+
+    p {
+        color: #555;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+    }
+
+    .footer p {
+        color: #555;
+        font-size: 14px;
+    }
+
+    .whats-new {
+        background-color: #e6f3ff;
+        border-left: 5px solid #007BFF;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .whats-new h4 {
+        color: #007BFF;
+        margin-top: 0;
+    }
+
+    .whats-new ul {
+        margin-bottom: 0;
+        padding-left: 20px;
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    
+    .fadeIn {
+        animation: fadeIn 1.5s ease-in-out;
+    }
+    
+    @keyframes slideIn {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(0); }
+    }
+    
+    .slideIn {
+        animation: slideIn 1s ease-in-out;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<div class="whats-new fadeIn">
+    <h4>What's New:</h4>
+    <ul>
+""" + "".join([f"<li>{item}</li>" for item in whats_new]) + """
+    </ul>
+</div>
+""", unsafe_allow_html=True)
 
 subjects = {
     "ECM": {
@@ -60,6 +214,48 @@ subjects = {
     }
 }
 
+
+st.sidebar.title("Subjects")
+st_lottie(lottie_book, height=200, key="sidebar_animation")
+selected_subject = st.sidebar.radio("Choose a subject", list(subjects.keys()))
+
+
+st.markdown(f"<h1 class='subject-title fadeIn'>{selected_subject} Resources</h1>", unsafe_allow_html=True)
+
+
+st_lottie(lottie_coding, height=300, key="main_animation")
+
+
+st.markdown(f"<h3 class='slideIn'>Tips and Tricks:</h3><p>{subjects[selected_subject]['Tips and Tricks']}</p>", unsafe_allow_html=True)
+
+
+if selected_subject == "ECM":
+    st.markdown("<h3> Study Strategy:</h3>", unsafe_allow_html=True)
+    labels = subjects["ECM"]["Importance Graph"]["labels"]
+    sizes = subjects["ECM"]["Importance Graph"]["sizes"]
+    
+    df = pd.DataFrame({"Strategy": labels, "Importance": sizes})
+    
+    chart = alt.Chart(df).mark_arc().encode(
+        theta=alt.Theta(field="Importance", type="quantitative"),
+        color=alt.Color(field="Strategy", type="nominal"),
+        tooltip=["Strategy", "Importance"]
+    ).properties(width=400, height=400)
+    
+    st.altair_chart(chart, use_container_width=True)
+
+
+for resource, link in subjects[selected_subject].items():
+    if resource not in ["Tips and Tricks", "Importance Graph"]:
+        st.markdown(f"""
+        <div class='resource-card'>
+            <a href='{link}' target='_blank' class='resource-link'>{resource}</a>
+        </div>
+        """, unsafe_allow_html=True)
+
+
+effects = ['balloons', 'snow', 'custom_message']
+
 random_messages = [
     "🎉 You are doing great! 🎉",
     "Do you know Ligy ma'am gives a lot of marks, more than we deserve if our approach is right.",
@@ -74,250 +270,19 @@ random_messages = [
     "oh you want chill person talk to korus the KOKO",
 ]
 
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
+if st.button("Click here if you are bored!", key="surprise_button"):
+    surprise = random.choice(effects)
+    if surprise == 'balloons':
+        st.balloons()
+    elif surprise == 'snow':
+        st.snow()
+    elif surprise == 'custom_message':
+        st.markdown(f"<h1 style='text-align: center;' class='fadeIn'>{random.choice(random_messages)}</h1>", unsafe_allow_html=True)
 
-# Load animations
-lottie_animations = {
-    "book": load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_1a8dx7zj.json"),
-    "coding": load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_V9t630.json"),
-    "study": load_lottieurl("https://assets2.lottiefiles.com/packages/lf20_vvx2gjpt.json"),
-    "rocket": load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_myejiggj.json"),
-    "success": load_lottieurl("https://assets3.lottiefiles.com/packages/lf20_xnh1jp0k.json")
-}
 
-# Fun facts
-fun_facts = [
-    "Did you know? Taking short breaks during study sessions can improve retention by up to 20%!",
-    "The best time to review your notes is within 24 hours of taking them.",
-    "Studies show that teaching others can improve your own understanding by up to 90%!",
-    "Regular exercise can boost your memory and thinking skills!",
-    "Music can help you study better, especially Mozart's compositions!"
-]
-
-# Page configuration
-st.set_page_config(
-    page_title="Educational Resources Dashboard",
-    page_icon="📚",
-    layout="wide"
-)
-
-# Hide Streamlit default elements
 st.markdown("""
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-    
-    * {
-        font-family: 'Poppins', sans-serif;
-    }
-    
-    .main {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    }
-    
-    .stButton>button {
-        background: linear-gradient(45deg, #007BFF, #00C6FF);
-        color: white;
-        border: none;
-        padding: 0.8rem 1.5rem;
-        border-radius: 25px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
-    }
-    
-    .stButton>button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
-    }
-    
-    .resource-card {
-        background: white;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 15px 0;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px);
-        transition: all 0.3s ease;
-    }
-    
-    .resource-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-    }
-    
-    .subject-title {
-        background: linear-gradient(45deg, #007BFF, #00C6FF);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 2.5rem;
-        font-weight: 700;
-        text-align: center;
-        margin: 2rem 0;
-    }
-    
-    .whats-new {
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 15px;
-        padding: 20px;
-        margin: 20px 0;
-        border-left: 5px solid #007BFF;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    }
-    
-    .update-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .update-date {
-        color: #666;
-        font-size: 0.9rem;
-    }
-    
-    .fun-fact-card {
-        background: linear-gradient(45deg, #FF512F, #F09819);
-        color: white;
-        padding: 20px;
-        border-radius: 15px;
-        margin: 20px 0;
-        box-shadow: 0 4px 15px rgba(255, 81, 47, 0.2);
-    }
-    
-    .tooltip {
-        position: relative;
-        display: inline-block;
-    }
-    
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 5px 10px;
-        border-radius: 6px;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-    
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-        opacity: 1;
-    }
-    
-    .resource-link {
-        text-decoration: none;
-        color: #007BFF;
-        transition: color 0.3s ease;
-    }
-    
-    .resource-link:hover {
-        color: #0056b3;
-    }
-    </style>
+<div class="footer fadeIn">
+    <p>From senior to junior</p>
+    <p>ALL THE BEST...</p>
+</div>
 """, unsafe_allow_html=True)
-
-# Enhanced header with animation
-st.markdown("<h1 class='subject-title'>Educational Resources Dashboard</h1>", unsafe_allow_html=True)
-st_lottie(lottie_animations["rocket"], height=200)
-
-# Enhanced What's New section
-st.markdown("""
-<div class="whats-new">
-    <h3>📢 Latest Updates</h3>
-""", unsafe_allow_html=True)
-
-for update in whats_new:
-    st.markdown(f"""
-    <div class="update-item">
-        <span>{update['update']}</span>
-        <span class="update-date">{update['date']}</span>
-    </div>
-    """, unsafe_allow_html=True)
-
-st.markdown("</div>", unsafe_allow_html=True)
-
-# Enhanced sidebar
-st.sidebar.title("📚 Subject Navigator")
-st_lottie(lottie_animations["book"], height=150, key="sidebar_animation")
-selected_subject = st.sidebar.radio("Choose your subject", list(subjects.keys()))
-
-# Main content
-st.markdown(f"<h1 class='subject-title'>{selected_subject} Resources</h1>", unsafe_allow_html=True)
-st_lottie(lottie_animations["study"], height=200)
-
-# Enhanced Tips and Tricks section
-st.markdown("""
-<div class="resource-card">
-    <h3>🎯 Tips and Tricks</h3>
-""", unsafe_allow_html=True)
-st.markdown(subjects[selected_subject]['Tips and Tricks'])
-st.markdown("</div>", unsafe_allow_html=True)
-
-# Display importance graph for ECM
-if selected_subject == "ECM":
-    st.markdown("<h3>📊 Study Strategy Breakdown</h3>", unsafe_allow_html=True)
-    data = pd.DataFrame({
-        'Strategy': subjects['ECM']['Importance Graph']['labels'],
-        'Percentage': subjects['ECM']['Importance Graph']['sizes']
-    })
-    
-    chart = alt.Chart(data).mark_arc().encode(
-        theta=alt.Theta(field="Percentage", type="quantitative"),
-        color=alt.Color(field="Strategy", type="nominal"),
-        tooltip=['Strategy', 'Percentage']
-    ).properties(width=400, height=400)
-    
-    st.altair_chart(chart, use_container_width=True)
-
-# Enhanced resource cards
-for resource, link in subjects[selected_subject].items():
-    if resource not in ["Tips and Tricks", "Importance Graph"]:
-        st.markdown(f"""
-        <div class="resource-card">
-            <div class="tooltip">
-                <a href="{link}" target="_blank" class="resource-link">
-                    <h4>📑 {resource}</h4>
-                </a>
-                <span class="tooltiptext">Click to open resource</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-# Random fun fact
-st.markdown("""
-<div class="fun-fact-card">
-    <h3>💡 Did You Know?</h3>
-""", unsafe_allow_html=True)
-st.write(random.choice(fun_facts))
-st.markdown("</div>", unsafe_allow_html=True)
-
-# Enhanced motivation button
-if st.button("🎉 Need Some Motivation?", key="motivation_button"):
-    st_lottie(lottie_animations["success"], height=200)
-    st.markdown(f"""
-    <div class="resource-card">
-        <h3>🌟 {random.choice(random_messages)}</h3>
-    </div>
-    """, unsafe_allow_html=True)
-
-# Footer
-st.markdown("""
-<div class="resource-card" style="text-align: center;">
-    <h3>From Senior to Junior""")
