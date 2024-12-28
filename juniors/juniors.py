@@ -4,9 +4,7 @@ import random
 import pandas as pd
 import altair as alt
 from streamlit_lottie import st_lottie
-from streamlit_particles import particles
 import requests
-import json
 
 # Data Structures
 whats_new = [
@@ -76,7 +74,6 @@ random_messages = [
     "oh you want chill person talk to korus the KOKO",
 ]
 
-# Functions
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
@@ -90,34 +87,6 @@ lottie_animations = {
     "study": load_lottieurl("https://assets2.lottiefiles.com/packages/lf20_vvx2gjpt.json"),
     "rocket": load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_myejiggj.json"),
     "success": load_lottieurl("https://assets3.lottiefiles.com/packages/lf20_xnh1jp0k.json")
-}
-
-# Particle effect configuration
-particles_config = {
-    "particles": {
-        "number": {
-            "value": 50,
-            "density": {
-                "enable": True,
-                "value_area": 800
-            }
-        },
-        "color": {
-            "value": "#007BFF"
-        },
-        "size": {
-            "value": 3,
-            "random": True
-        },
-        "line_linked": {
-            "enable": True,
-            "color": "#007BFF"
-        },
-        "move": {
-            "enable": True,
-            "speed": 2
-        }
-    }
 }
 
 # Fun facts
@@ -142,12 +111,7 @@ st.markdown("""
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
-    </style>
-    """, unsafe_allow_html=True)
-
-# CSS Styles
-st.markdown("""
-<style>
+    
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     
     * {
@@ -266,11 +230,8 @@ st.markdown("""
     .resource-link:hover {
         color: #0056b3;
     }
-</style>
+    </style>
 """, unsafe_allow_html=True)
-
-# Add particle effect background
-particles(particles_config)
 
 # Enhanced header with animation
 st.markdown("<h1 class='subject-title'>Educational Resources Dashboard</h1>", unsafe_allow_html=True)
@@ -345,4 +306,18 @@ st.markdown("""
     <h3>💡 Did You Know?</h3>
 """, unsafe_allow_html=True)
 st.write(random.choice(fun_facts))
-st.markdown("</div>", unsafe_allow_)
+st.markdown("</div>", unsafe_allow_html=True)
+
+# Enhanced motivation button
+if st.button("🎉 Need Some Motivation?", key="motivation_button"):
+    st_lottie(lottie_animations["success"], height=200)
+    st.markdown(f"""
+    <div class="resource-card">
+        <h3>🌟 {random.choice(random_messages)}</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+# Footer
+st.markdown("""
+<div class="resource-card" style="text-align: center;">
+    <h3>From Senior to Junior
