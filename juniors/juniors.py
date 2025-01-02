@@ -8,11 +8,7 @@ from streamlit_lottie import st_lottie
 import requests
 
 whats_new = [
-    "updated madhav sir lecture in pcp. dont spend time on it more at beginning . it will be useful at end when he teaches advance topics . ",
-    "updated pcp text books which he refer peavy and benefield",
-    "EMDA question papers",
-    "SWM textbooks and ppt",
-    "pcp 2019 question paper in quiz folder"
+    "I will try to upload contents for second sem soon!!Hoping you are devoloping some skillsets for now !!"
     # Add more items as you make changes
 ]
 
