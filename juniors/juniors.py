@@ -213,6 +213,12 @@ subjects = {
             1. You already know how to study this one ... :) 
         """,
         "ppt and question paper ": "https://drive.google.com/drive/folders/1nS2KE78S-owrlvK2ohkOIRPESkGAINTX"
+    },
+    "HWM": {
+        "Tips and Tricks": """
+            1. study the ppt properly ... :) 
+        """,
+        "ppt and question paper ": "https://drive.google.com/drive/u/1/folders/1hvZkl0zycnogG27yG1Y66WgElnJghi6k"
     }
 }
 
