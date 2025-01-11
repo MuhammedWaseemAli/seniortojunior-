@@ -207,6 +207,12 @@ subjects = {
         """,
         "Class lecture ppt": "https://drive.google.com/drive/u/1/folders/1VMQo7o4FjEqaUxBcBsTFARj3UxUZExaH",
         "PREVIOUS QUESTION PAPER": "https://drive.google.com/drive/u/0/folders/1AqeGE8VslYlgm2LhuSj_BsIwXTZKNAe-"
+    },
+    "BPD": {
+        "Tips and Tricks": """
+            1. You already know how to study this one ... :) 
+        """,
+        "ppt and question paper ": "https://drive.google.com/drive/folders/1nS2KE78S-owrlvK2ohkOIRPESkGAINTX"
     }
 }
 
