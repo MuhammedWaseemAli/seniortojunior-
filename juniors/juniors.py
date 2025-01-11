@@ -219,6 +219,11 @@ subjects = {
             1. study the ppt properly ... :) 
         """,
         "ppt's ": "https://drive.google.com/drive/u/1/folders/1hvZkl0zycnogG27yG1Y66WgElnJghi6k"
+    },
+    "TW&WW": {
+        "Tips and Tricks": """
+            1. He will teach everything and he will give model questions he will ask from those only. :) 
+        """
     }
 }
 
