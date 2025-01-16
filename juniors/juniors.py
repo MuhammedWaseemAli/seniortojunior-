@@ -222,9 +222,14 @@ subjects = {
     },
     "TW&WW": {
         "Tips and Tricks": """
-            1. He mostly ask question from the samples given only   
+            1. Sir mostly ask question from the samples given only. Best class ever for me ...  
         """,
         "ppt and question paper ": "https://drive.google.com/drive/u/1/folders/18YD3cE5mpF2rR5x0B1qCHZ7z8a1SLsMA"
+    },
+    "Air pollution and control Processes ": {
+        "Tips and Tricks": """
+            sir will provide ppt's learn everything from it . He can ask anywhere from it .. Mostly formula sheets are not allowed . so therefore u might need to memorise all the derivation in the portion during quiz 2 .sont depend on formula sheets 
+        """
     }
 }
 
