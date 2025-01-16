@@ -222,7 +222,7 @@ subjects = {
     },
     "TW&WW": {
         "Tips and Tricks": """
-            1. He mostly ask question from the samples given only  . :) 
+            1. He mostly ask question from the samples given only   
         """,
         "ppt and question paper ": "https://drive.google.com/drive/u/1/folders/18YD3cE5mpF2rR5x0B1qCHZ7z8a1SLsMA"
     }
