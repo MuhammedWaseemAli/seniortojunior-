@@ -212,7 +212,8 @@ subjects = {
         "Tips and Tricks": """
             1. You already know how to study this one ... :) 
         """,
-        "ppt and question paper ": "https://drive.google.com/drive/folders/1nS2KE78S-owrlvK2ohkOIRPESkGAINTX"
+        "ppt and question paper ": "https://drive.google.com/drive/folders/1nS2KE78S-owrlvK2ohkOIRPESkGAINTX",
+        "Answer sheet  ": "https://drive.google.com/drive/folders/1XZNq-I0F6evwavWFARHE8yAXF0foqbW6?usp=drive_link"
     },
     "HWM": {
         "Tips and Tricks": """
@@ -229,7 +230,8 @@ subjects = {
     "Air pollution and control Processes ": {
         "Tips and Tricks": """
             sir will provide ppt's learn everything from it . He can ask anywhere from it .. Mostly formula sheets are not allowed . so therefore u might need to memorise all the derivation in the portion during quiz 2 .sont depend on formula sheets 
-        """
+        """,
+        "Answer sheet  ": "https://drive.google.com/drive/folders/1lVcaPoMxwbvgLcuI8efnODOTPi9ZXEjV?usp=drive_link"
     }
 }
 
