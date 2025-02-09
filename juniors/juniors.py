@@ -1,4 +1,4 @@
-#juniortosenior 
+ #juniortosenior 
 import streamlit as st
 import matplotlib.pyplot as plt
 import random
@@ -238,6 +238,7 @@ subjects = {
             Not as hard as pcp . but still study ppt understand it the followig material will give idea about how he can ask? 
         """,
         "Answer sheet  ": "https://drive.google.com/drive/folders/17zSvTtVK8Ofub6dpUpwQJTd-ommdl6dL?usp=drive_link"
+}
 }
 
 
