@@ -232,7 +232,12 @@ subjects = {
             sir will provide ppt's learn everything from it . He can ask anywhere from it .. Mostly formula sheets are not allowed . so therefore u might need to memorise all the derivation in the portion during quiz 2 .sont depend on formula sheets 
         """,
         "Answer sheet  ": "https://drive.google.com/drive/folders/1lVcaPoMxwbvgLcuI8efnODOTPi9ZXEjV?usp=drive_link"
-    }
+    },
+    "Risk assesemnt and toxicology": {
+        "Tips and Tricks": """
+            Not as hard as pcp . but still study ppt understand it the followig material will give idea about how he can ask? 
+        """,
+        "Answer sheet  ": "https://drive.google.com/drive/folders/17zSvTtVK8Ofub6dpUpwQJTd-ommdl6dL?usp=drive_link"
 }
 
 
