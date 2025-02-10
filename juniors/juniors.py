@@ -8,7 +8,7 @@ from streamlit_lottie import st_lottie
 import requests
 
 whats_new = [
-    "I will try to upload contents for second sem soon!!Hoping you are devoloping some skillsets for now !!"
+    "I have added some answer sheets of bpd,twww,riskassesemnt,airpollution"
     # Add more items as you make changes
 ]
 
