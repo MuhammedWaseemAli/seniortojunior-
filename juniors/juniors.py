@@ -8,7 +8,7 @@ from streamlit_lottie import st_lottie
 import requests
 
 whats_new = [
-    "I have added some answer sheets of bpd,twww,riskassesemnt,airpollution"
+    "I have added some answer sheets of bpd,twww,riskassesemnt,airpollution question paper"
     # Add more items as you make changes
 ]
 
@@ -231,7 +231,7 @@ subjects = {
         "Tips and Tricks": """
             sir will provide ppt's learn everything from it . He can ask anywhere from it .. Mostly formula sheets are not allowed . so therefore u might need to memorise all the derivation in the portion during quiz 2 .sont depend on formula sheets 
         """,
-        "Answer sheet  ": "https://drive.google.com/drive/folders/1lVcaPoMxwbvgLcuI8efnODOTPi9ZXEjV?usp=drive_link"
+        "Answer sheet and question papers  ": "https://drive.google.com/drive/folders/1lVcaPoMxwbvgLcuI8efnODOTPi9ZXEjV?usp=drive_link"
     },
     "Risk assesemnt and toxicology": {
         "Tips and Tricks": """
