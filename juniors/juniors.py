@@ -8,7 +8,7 @@ from streamlit_lottie import st_lottie
 import requests
 
 whats_new = [
-    "I have added some answer sheets of bpd,twww,riskassesemnt,airpollution question paper"
+    "added some answer sheets of bpd,twww,riskassesemnt,airpollution question paper also BPD term paper"
     # Add more items as you make changes
 ]
 
@@ -213,7 +213,7 @@ subjects = {
             1. You already know how to study this one ... :) 
         """,
         "ppt and question paper ": "https://drive.google.com/drive/folders/1nS2KE78S-owrlvK2ohkOIRPESkGAINTX",
-        "Answer sheet  ": "https://drive.google.com/drive/folders/1XZNq-I0F6evwavWFARHE8yAXF0foqbW6?usp=drive_link"
+        "Answer sheet and bpd term paper  ": "https://drive.google.com/drive/folders/1XZNq-I0F6evwavWFARHE8yAXF0foqbW6?usp=drive_link"
     },
     "HWM": {
         "Tips and Tricks": """
